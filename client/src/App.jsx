@@ -11,7 +11,7 @@ function App() {
   const { activeNav } = useContext(NavContext)
   return (
     <div className="bg-[#EDF2F4] w-screen h-screen flex justify-center items-center font-roboto">
-      <div className="min-w-[600px]">
+      <div className="w-[600px]">
         <Header />
         <Navbar />
         <section className="h-[400px] w-full border-2 box-border p-4 border-[#2B2D42] bg-[#f8f9fa]">

@@ -15,14 +15,22 @@ function AddClass() {
           <input type="number" placeholder="e.g. 1234" />
         </span>
       </div>
-      <div className="flex gap-2 mt-2">
-        <span className="">
+      <div className="flex gap-2 mt-2 w-full items-center">
+        <span className="w-[20%]">
           <label htmlFor="" className="text-gray-700">
             Location
           </label>
-          <input type="text" placeholder="e.g. HMPH 208" />
+          <select className="text-lg text-gray-700">
+            <option value="">HMPH</option>
+          </select>
         </span>
-        <span className="w-full">
+        <span className="w-[20%]">
+          <label htmlFor="" className="text-gray-700">
+            Room
+          </label>
+          <input type="text" placeholder="e.g. 208" />
+        </span>
+        <span className="w-[60%]">
           <label htmlFor="" className="text-gray-700">
             Instructor
           </label>
@@ -42,8 +50,15 @@ function AddClass() {
           </label>
           <input type="time" />
         </span>
+        <span className="w-[50%]">
+          <label htmlFor="" className="text-gray-700">
+            Credit
+          </label>
+          <input type="number" placeholder="e.g. 3" />
+        </span>
       </div>
-      <div className="flex gap-2 mt-2">
+
+      <div className="flex gap-1 mt-2">
         <span className="w-full">
           <label htmlFor="" className="text-gray-700">
             Days
