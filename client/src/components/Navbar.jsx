@@ -1,7 +1,7 @@
 import { IoCalendarNumberOutline } from "react-icons/io5"
 import { IoIosAdd } from "react-icons/io"
 import { useContext } from "react"
-import { NavContext } from "../../context/NavContext"
+import { NavContext } from "../context/NavContext"
 
 function Navbar() {
   const { setActiveNav } = useContext(NavContext)
@@ -24,7 +24,7 @@ function Navbar() {
         </span>
       </div>
       <span
-        onClick={() => setActiveNav("add")}
+        onClick={() => setActiveNav("login")}
         className="flex items-center hover:bg-[#2B2D42] hover:text-white px-4 py-1 cursor-pointer duration-100"
       >
         <a className="font-semibold text-lg">Login</a>
