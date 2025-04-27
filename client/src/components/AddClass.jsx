@@ -1,9 +1,10 @@
-import { useState } from "react"
+import { useContext, useState } from "react"
+import { ClassContext } from "../context/ClassContext"
 
 const defaultAddClassForm = {
   courseName: "",
   crn: 0,
-  location: "",
+  location: "HMPH",
   room: 0,
   instructor: "",
   start: "",
@@ -17,9 +18,12 @@ function AddClass() {
   const { courseName, crn, location, room, instructor, start, end, credit } =
     addClassForm
 
-  const handleAddClassSubmit = (e) => {
+  const { addClass } = useContext(ClassContext)
+
+  const handleAddClassSubmit = async (e) => {
     e.preventDefault()
-    console.log(addClassForm)
+    await addClass(addClassForm)
+    console.log("success!")
   }
   return (
     <form
@@ -156,6 +160,8 @@ function AddClass() {
             type="number"
             required
             placeholder="e.g. 3"
+            minLength="1"
+            maxLength="4"
             value={credit}
             onChange={(e) =>
               setAddClassForm({

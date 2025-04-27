@@ -1,7 +1,6 @@
 import { useState } from "react"
 import { FaEye } from "react-icons/fa"
 import { FaEyeSlash } from "react-icons/fa"
-import { CiLogin } from "react-icons/ci"
 
 function Login({ setShowPage }) {
   const [showPassword, setShowPassword] = useState(true)
