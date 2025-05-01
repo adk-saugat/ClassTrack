@@ -15,7 +15,7 @@ function App() {
       <div className="w-[600px]">
         <Header />
         <Navbar />
-        <section className="h-[400px] w-full border-2 box-border p-4 border-[#2B2D42] bg-[#f8f9fa]">
+        <section className="h-[400px] w-full border-2 box-border p-4 border-darkgray bg-lightwhite">
           {activeNav === "schedule" && <Schedule />}
           {activeNav === "add" && <AddClass />}
           {activeNav === "auth" && <Auth />}

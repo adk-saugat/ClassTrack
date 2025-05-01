@@ -1,5 +1,6 @@
 import { useContext, useState } from "react"
 import { ClassContext } from "../context/ClassContext"
+import { NavContext } from "../context/NavContext"
 
 const defaultAddClassForm = {
   courseName: "",
@@ -19,11 +20,13 @@ function AddClass() {
     addClassForm
 
   const { addClass } = useContext(ClassContext)
+  const { setActiveNav } = useContext(NavContext)
 
   const handleAddClassSubmit = async (e) => {
     e.preventDefault()
     await addClass(addClassForm)
-    console.log("success!")
+    setAddClassForm(defaultAddClassForm)
+    setActiveNav("schedule")
   }
   return (
     <form

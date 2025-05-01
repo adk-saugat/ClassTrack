@@ -28,7 +28,7 @@ function Navbar() {
           <a className="font-semibold text-lg">Add</a>
         </span>
       </div>
-      <span
+      {/* <span
         onClick={() => setActiveNav("auth")}
         className={`${
           activeNav === "auth" && "bg-[#2B2D42] text-white"
@@ -36,7 +36,7 @@ function Navbar() {
       >
         <LuLogIn size={25} />
         <a className="font-semibold text-lg">Login</a>
-      </span>
+      </span> */}
     </nav>
   )
 }

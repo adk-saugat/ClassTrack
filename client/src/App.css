@@ -3,6 +3,8 @@
 
 @theme {
   --font-roboto: Roboto;
+  --color-darkgray: #2b2d42;
+  --color-lightwhite: #f8f9fa;
 }
 
 input,

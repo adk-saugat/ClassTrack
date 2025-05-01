@@ -16,13 +16,13 @@ const classReducer = (state, action) => {
 }
 
 export const ClassContext = createContext({
-  classes: [], // Set the default value to an empty array
+  classes: [],
   dispatchClasses: () => {},
   addClass: () => {},
 })
 
 const ClassProvider = ({ children }) => {
-  const [state, dispatchClasses] = useReducer(classReducer, { classes: [] }) // Ensure initial state is an array
+  const [state, dispatchClasses] = useReducer(classReducer, { classes: [] })
 
   useEffect(() => {
     getAllClass()
@@ -50,7 +50,7 @@ const ClassProvider = ({ children }) => {
   return (
     <ClassContext.Provider
       value={{
-        classes: state.classes, // Use `state.classes` here
+        classes: state.classes,
         dispatchClasses,
         addClass,
       }}
