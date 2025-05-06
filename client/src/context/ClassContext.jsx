@@ -1,9 +1,8 @@
-import { createContext, useContext, useEffect, useReducer } from "react"
+import { createContext, useEffect, useReducer } from "react"
 import axios from "axios"
 import { toast } from "react-hot-toast"
-import { NavContext } from "./NavContext"
 
-axios.defaults.baseURL = "http://localhost:8000"
+axios.defaults.baseURL = import.meta.env.VITE_BASE_URL
 
 const classReducer = (state, action) => {
   const { type, payload } = action
@@ -15,7 +14,7 @@ const classReducer = (state, action) => {
     case "DELETE_CLASS":
       return {
         ...state,
-        classes: state.classes.filter((cls) => cls._id !== payload),
+        classes: state.classes.filter((cls) => cls._id !== payload), // Remove the class with the matching _id
       }
     default:
       return state
@@ -31,38 +30,38 @@ export const ClassContext = createContext({
 
 const ClassProvider = ({ children }) => {
   const [state, dispatchClasses] = useReducer(classReducer, { classes: [] })
-  const { setActiveNav } = useContext(NavContext)
 
   useEffect(() => {
     getAllClass()
-  }, [state.classes])
+  }, [])
 
   const getAllClass = async () => {
     try {
       const response = await axios.get("/class/")
       dispatchClasses({ type: "GET_CLASS", payload: response.data })
     } catch (error) {
-      toast.error(error.response.data.error)
+      toast.error(error.response?.data?.error || "Failed to fetch classes")
     }
   }
 
   const addClass = async (classData) => {
     try {
       const response = await axios.post("/class/", classData)
-      dispatchClasses({ type: "CREATE_CLASS", payload: classData })
+      dispatchClasses({ type: "CREATE_CLASS", payload: response.data })
       toast.success("Class added successfully!")
       return true
     } catch (error) {
-      toast.error(error.response.data.error)
+      toast.error(error.response?.data?.error || "Failed to add class")
     }
   }
 
   const deleteClass = async (_id) => {
     try {
-      const response = await axios.delete(`/class/${_id}`, {})
-      dispatchClasses({ type: "DELETE_CLASS" })
+      await axios.delete(`/class/${_id}`)
+      dispatchClasses({ type: "DELETE_CLASS", payload: _id }) // Pass the _id as the payload
+      toast.success("Class deleted successfully!")
     } catch (error) {
-      toast.error(error.response.data.error)
+      toast.error(error.response?.data?.error || "Failed to delete class")
     }
   }
 

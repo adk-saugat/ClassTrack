@@ -2,7 +2,6 @@ import { useContext } from "react"
 import { ClassContext } from "../context/ClassContext"
 import convertTime from "convert-time"
 import { MdDelete } from "react-icons/md"
-import { NavContext } from "../context/NavContext"
 
 function Schedule() {
   const { classes, deleteClass } = useContext(ClassContext)
@@ -11,6 +10,7 @@ function Schedule() {
     e.preventDefault()
     deleteClass(_id)
   }
+  console.log(classes)
 
   return (
     <div className="text-darkgray">
