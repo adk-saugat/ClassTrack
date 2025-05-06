@@ -12,4 +12,6 @@ app.use(cors())
 app.use(express.json())
 app.use("/class", classRouter)
 
+app.get("/", (req, res) => res.send("Hello!"))
+
 app.listen(PORT, () => console.log(`Server running on port ${PORT}!`))
