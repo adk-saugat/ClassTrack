@@ -2,9 +2,15 @@ import { useContext } from "react"
 import { ClassContext } from "../context/ClassContext"
 import convertTime from "convert-time"
 import { MdDelete } from "react-icons/md"
+import { NavContext } from "../context/NavContext"
 
 function Schedule() {
-  const { classes } = useContext(ClassContext)
+  const { classes, deleteClass } = useContext(ClassContext)
+
+  const handleClassDelete = (e, _id) => {
+    e.preventDefault()
+    deleteClass(_id)
+  }
 
   return (
     <div className="text-darkgray">
@@ -35,6 +41,7 @@ function Schedule() {
                   </h3>
                   <MdDelete
                     size={25}
+                    onClick={(e) => handleClassDelete(e, _id)}
                     className="w-[10%] text-red-500 hover:scale-120 duration-100"
                   />
                 </div>

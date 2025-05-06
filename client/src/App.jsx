@@ -3,7 +3,6 @@ import "./App.css"
 
 import Header from "./components/Header"
 import Navbar from "./components/Navbar"
-import Auth from "./components/Auth"
 import Schedule from "./components/Schedule"
 import { NavContext } from "./context/NavContext"
 import AddClass from "./components/AddClass"
@@ -18,7 +17,6 @@ function App() {
         <section className="h-[400px] w-full border-2 box-border p-4 border-darkgray bg-lightwhite">
           {activeNav === "schedule" && <Schedule />}
           {activeNav === "add" && <AddClass />}
-          {activeNav === "auth" && <Auth />}
         </section>
       </div>
     </div>

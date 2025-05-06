@@ -28,15 +28,6 @@ function Navbar() {
           <a className="font-semibold text-lg">Add</a>
         </span>
       </div>
-      {/* <span
-        onClick={() => setActiveNav("auth")}
-        className={`${
-          activeNav === "auth" && "bg-[#2B2D42] text-white"
-        } flex items-center gap-1 hover:bg-[#2B2D42] hover:text-white px-4 py-1 cursor-pointer duration-100`}
-      >
-        <LuLogIn size={25} />
-        <a className="font-semibold text-lg">Login</a>
-      </span> */}
     </nav>
   )
 }

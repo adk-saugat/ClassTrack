@@ -24,9 +24,16 @@ function AddClass() {
 
   const handleAddClassSubmit = async (e) => {
     e.preventDefault()
-    await addClass(addClassForm)
-    setAddClassForm(defaultAddClassForm)
-    setActiveNav("schedule")
+    try {
+      const response = await addClass(addClassForm)
+
+      if (response) {
+        setAddClassForm(defaultAddClassForm)
+        setActiveNav("schedule")
+      }
+    } catch (error) {
+      console.log("Failed to add class:", error.message)
+    }
   }
   return (
     <form
